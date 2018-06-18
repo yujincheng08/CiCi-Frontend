@@ -1,9 +1,11 @@
 import React from 'react';
-import Input, {InputAdornment, InputLabel} from 'material-ui/Input';
-import {FormControl} from 'material-ui/Form';
-import IconButton from 'material-ui/IconButton'
-import Visibility from 'material-ui-icons/Visibility';
-import VisibilityOff from 'material-ui-icons/VisibilityOff';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import IconButton from '@material-ui/core/IconButton'
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 export default class PasswordField extends React.Component {
 

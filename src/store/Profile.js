@@ -18,7 +18,7 @@ export default class Profile extends Item {
     super();
     autorun(() => {
       if (!Item.token) return;
-      superagent.get(`${this.host}/api/user`)
+      superagent.get(`/api/user`)
         .use(this.tokenPlugin)
         .then(({body: {user}}) => this.update(user))
         .catch(action(err => this.err = err));

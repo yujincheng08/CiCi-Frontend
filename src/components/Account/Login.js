@@ -1,13 +1,16 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import {inject, observer} from 'mobx-react';
 import PasswordField from 'components/common/PasswordField';
 import {withRouter} from 'react-router-dom';
+import {withStyles} from '@material-ui/core/styles'
+import styles from 'styles';
 
-@inject('store')
 @withRouter
+@inject('store')
 @observer
+@withStyles(styles)
 export default class Login extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
@@ -20,25 +23,28 @@ export default class Login extends React.Component {
   }
 
   render() {
-    const {auth} = this.props.store;
+    const {classes, store: {auth}} = this.props;
     const {values} = auth;
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className={classes.accountForm}>
         <TextField
           label={"Email"}
           fullWidth required
           inputProps={{pattern: '\\S+@\\S+\\.\\S+'}}
           onChange={e => auth.setEmail(e.target.value)}
           value={values.email}
+          className={classes.accountFormItem}
         />
         <PasswordField
           label={"Password"}
           fullWidth required
           onChange={e => auth.setPassword(e.target.value)}
           value={values.password}
+          className={classes.accountFormItem}
         />
         <Button variant={"raised"}
                 type={"submit"}
+                className={classes.accountFormItem}
                 fullWidth
         >Login</Button>
         {auth.error === undefined ? null :

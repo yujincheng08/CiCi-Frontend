@@ -41,7 +41,7 @@ export default class Auth extends Item {
     this.error = undefined;
     const {email, password} = this.values;
 
-    return superagent.post(`${this.host}/api/login`)
+    return superagent.post(`/api/session`)
       .send({user: {email, password}})
       .then(({body: {user}}) => {
         this.setToken(user.token);
@@ -55,7 +55,7 @@ export default class Auth extends Item {
     this.progressing = true;
     this.error = undefined;
     const {username, email, password} = this.values;
-    return superagent.put(`${this.host}/api/register`)
+    return superagent.put(`/api/user`)
       .send({user: {username, email, password}})
       .then(({body: {user}}) => {
         this.setToken(user.token);

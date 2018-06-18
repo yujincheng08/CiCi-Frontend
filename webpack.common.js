@@ -16,12 +16,13 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, "src/components"),
       store: path.resolve(__dirname, "src/store"),
+      styles: path.resolve(__dirname, "styles"),
     },
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: ">>",
+      title: "CiCi",
       template: './src/index.hbs',
       chunks: ['app'],
     }),
@@ -29,6 +30,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'dist'),
+    publicPath: "/",
   },
   module: {
     rules: [{
