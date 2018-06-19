@@ -13,9 +13,9 @@ import SearchBar from 'components/Header/SearchBar';
 import {withRouter} from 'react-router-dom';
 
 @withRouter
+@withStyles(styles)
 @inject('store')
 @observer
-@withStyles(styles)
 export default class Header extends React.Component {
 
   render() {

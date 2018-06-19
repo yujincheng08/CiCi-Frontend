@@ -9,9 +9,9 @@ import {withStyles} from '@material-ui/core/styles'
 import styles from 'styles';
 
 @withRouter
+@withStyles(styles)
 @inject('store')
 @observer
-@withStyles(styles)
 export default class Register extends React.Component {
 
   @observable confirmedPassword = '';
