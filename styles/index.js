@@ -95,6 +95,15 @@ export default theme => ({
     backgroundColor: theme.palette.secondary[500],
     paddingLeft: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
-  }
+    marginRight: 2 * theme.spacing.unit,
+  },
+  wordTitleWord: {
+    marginBottom: theme.spacing.unit,
+    fontSize: 40,
+  },
+  mainPaper: {
+    height: '100%',
+    position: 'relative',
+  },
 
 });

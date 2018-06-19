@@ -2,6 +2,11 @@ import React from 'react';
 import {observer, inject} from 'mobx-react';
 import {withRouter} from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import WordTitle from 'components/Word/WordTitle';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Definition from 'components/Word/Definition';
+import Examples from 'components/Word/Examples';
 
 @withRouter
 @inject('store')
@@ -30,11 +35,13 @@ export default class Word extends React.Component {
         <CircularProgress/>
       );
     return (
-      <div>
-        <span>
-          {word || "Word Not found"}
-        </span>
-      </div>
+        <Card>
+          <CardContent>
+            {word!==null?<WordTitle wordData={wordData}/>: "Word Not found"}
+            <Definition definitions={wordData['defs']}/>
+            <Examples examples={wordData['sams']}/>
+          </CardContent>
+        </Card>
     );
   }
 }

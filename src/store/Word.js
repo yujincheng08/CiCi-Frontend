@@ -17,7 +17,6 @@ export default class Word extends Item {
 
     return superagent.get(`/api/word/${word}`)
       .then(({body}) => {
-        console.log(body);
         this.wordData = body;
         this.word = body.word || null;
       })

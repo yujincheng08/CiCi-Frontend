@@ -10,6 +10,7 @@ import Drawer from 'components/Drawer'
 import Header from "components/Header";
 import styles from 'styles';
 import {withRouter} from 'react-router-dom';
+import Paper from '@material-ui/core/Paper';
 
 @withRouter
 @withStyles(styles)
@@ -24,10 +25,12 @@ export default class App extends React.Component {
           <Drawer/>
           <main id="app" className={classes.content}>
             <div className={classes.toolbar}/>
-            <Route exact path="/" component={Home}/>
-            <Route path="/:action(login|register)" component={Account}/>
-            <Route path="/logout" component={Logout}/>
-            <Route path="/word/:word" component={Word}/>
+            <Paper className={classes.mainPaper}>
+              <Route exact path="/" component={Home}/>
+              <Route path="/:action(login|register)" component={Account}/>
+              <Route path="/logout" component={Logout}/>
+              <Route path="/word/:word" component={Word}/>
+            </Paper>
           </main>
         </div>
       </MuiThemeProvider>
