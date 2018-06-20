@@ -7,8 +7,11 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Definition from 'components/Word/Definition';
 import Examples from 'components/Word/Examples';
+import {withStyles} from '@material-ui/core/styles';
+import styles from 'styles';
 
 @withRouter
+@withStyles(styles)
 @inject('store')
 @observer
 export default class Word extends React.Component {
@@ -29,19 +32,20 @@ export default class Word extends React.Component {
   }
 
   render() {
+    const {classes} = this.props;
     const {word, wordData, progressing} = this.props.store.word;
     if (progressing)
       return (
         <CircularProgress/>
       );
     return (
-        <Card>
-          <CardContent>
-            {word!==null?<WordTitle wordData={wordData}/>: "Word Not found"}
-            <Definition definitions={wordData['defs']}/>
-            <Examples examples={wordData['sams']}/>
-          </CardContent>
-        </Card>
+      <Card className={classes.wordCard}>
+        <CardContent>
+          {word !== null ? <WordTitle wordData={wordData}/> : "Word Not found"}
+          <Definition definitions={wordData['defs']}/>
+          <Examples examples={wordData['sams']}/>
+        </CardContent>
+      </Card>
     );
   }
 }

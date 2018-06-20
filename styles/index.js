@@ -20,6 +20,7 @@ export default theme => ({
     flexDirection: 'column',
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
+    height: '100vh',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -102,8 +103,14 @@ export default theme => ({
     fontSize: 40,
   },
   mainPaper: {
-    height: '100%',
+    display: 'flex',
     position: 'relative',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  },
+  wordCard: {
+    overflowY: 'auto',
   },
 
-});
+})
+;
