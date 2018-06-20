@@ -110,6 +110,7 @@ export default theme => ({
   },
   wordCard: {
     overflowY: 'auto',
+    height: '100vh',
   },
 
 })

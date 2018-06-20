@@ -22,8 +22,10 @@ export default class SearchBar extends React.Component {
   }
 
   search() {
-    if (this.state.keyword.length > 0)
+    if (this.state.keyword.length > 0) {
       this.props.history.push(`/word/${this.state.keyword}`);
+      this.setState({keyword: ""});
+    }
   };
 
   render() {
@@ -45,6 +47,7 @@ export default class SearchBar extends React.Component {
             </InputAdornment>
           }
           onChange={e => this.setState({keyword: e.target.value})}
+          value={this.state.keyword}
           placeholder={"search word"}
           className={classes.searchBar}
           disableUnderline
