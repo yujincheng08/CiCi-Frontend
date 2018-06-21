@@ -11,6 +11,8 @@ export default class Word extends Item {
 
   @observable wordData = null;
 
+  @observable learningState = null;
+
   @action query(word) {
     this.progressing = true;
     this.error = undefined;
@@ -24,9 +26,34 @@ export default class Word extends Item {
       .finally(action(() => this.progressing = false));
   }
 
+  @action getLearningState() {
+    return superagent.get(`/api/learning/${this.word}`)
+      .use(this.tokenPlugin)
+      .then(({body}) => {
+        this.learningState = body.state;
+      }).catch(action(err => this.error = err));
+  }
+
   @action reset() {
     this.word = null;
     this.wordData = null;
+    this.learningState = null;
+  }
+
+  @action forget() {
+    return superagent.delete(`/api/learning/${this.word}`)
+      .use(this.tokenPlugin)
+      .then(() => {
+        this.learningState = 0;
+      }).catch(action(err => this.error = err));
+  }
+
+  @action learn() {
+    return superagent.post(`/api/learning/${this.word}`)
+      .use(this.tokenPlugin)
+      .then(({body}) => {
+        this.learningState = body.state;
+      }).catch(action(err => this.error = err));
   }
 
 }

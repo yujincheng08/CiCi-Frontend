@@ -111,7 +111,38 @@ export default theme => ({
   wordCard: {
     overflowY: 'auto',
     height: '100vh',
-  },
+    ['&::-webkit-scrollbar']: {
+      height: 12,
+      width: 12,
+      overflow: 'visible',
+    },
+    ['&::-webkit-scrollbar-button']: {
+      height: 0,
+      width: 0,
+    },
 
+    ['&::-webkit-scrollbar-track']: {
+      backgroundClip: 'padding-box',
+      border: 'solid transparent',
+      borderWidth: 3,
+      borderRadius: 100,
+      backgroundColor: theme.palette.grey[200],
+    },
+
+    ['&::-webkit-scrollbar-thumb']: {
+      borderRadius: 100,
+      backgroundClip: 'padding-box',
+      border: 'solid transparent',
+      borderWidth: 3,
+      backgroundColor: theme.palette.grey[400],
+    },
+
+    ['&::-webkit-scrollbar-corner']: {
+      background: 'rgba(255, 0, 0, 0)',
+    },
+  },
+  learningState: {
+    marginLeft: 5 * theme.spacing.unit,
+  }
 })
 ;
