@@ -53,7 +53,7 @@ export default class Auth extends Item {
     this.progressing = true;
     this.resetError();
     const {username, email, password} = this.values;
-    return superagent.put(`/api/user`)
+    return superagent.post(`/api/user`)
       .send({user: {username, email, password}})
       .then(({body: {user}}) => {
         this.setToken(user.token);
@@ -63,7 +63,7 @@ export default class Auth extends Item {
   }
 
   @action logout() {
-    this.setToken(undefined);
+    this.clearToken();
     return Promise.resolve();
   }
 }

@@ -38,7 +38,7 @@ export default class Item {
 
   @action
   clearToken() {
-    this.setToken(undefined);
+    this.setToken(null);
   }
 
   tokenPlugin = (agent) => {

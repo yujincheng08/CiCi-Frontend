@@ -1,11 +1,10 @@
 import React from "react";
 import {inject, observer} from 'mobx-react';
 import {withRouter} from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import Banner from 'components/Home/Banner';
+import HomeCards from 'components/Home/HomeCards';
 import {withStyles} from '@material-ui/core/styles';
-import TranslateIcon from '@material-ui/icons/Translate';
-import SchoolIcon from '@material-ui/icons/School';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import styles from 'styles';
 
 
@@ -17,11 +16,10 @@ export default class Home extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <Paper className={classes.home}>
-        <TranslateIcon/>
-        <SchoolIcon/>
-        <LibraryBooksIcon/>
-      </Paper>
+      <Card className={classes.home}>
+        <Banner/>
+      <HomeCards/>
+      </Card>
     );
   }
 

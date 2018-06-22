@@ -9,6 +9,7 @@ import Definition from 'components/Word/Definition';
 import Examples from 'components/Word/Examples';
 import {withStyles} from '@material-ui/core/styles';
 import styles from 'styles';
+import Typography from "@material-ui/core/es/Typography/Typography";
 
 @withRouter
 @withStyles(styles)
