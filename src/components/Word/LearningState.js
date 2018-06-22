@@ -27,7 +27,8 @@ export default class LearningState extends React.Component {
   }
 
   render() {
-    let {store: {word: {learningState: state}}, classes} = this.props;
+    let {store: {word: {learningState: state}, isAuth}, classes} = this.props;
+    if (!isAuth) return null;
     if (state === null)
       return <CircularProgress size={20}
                                className={classes.learningState}/>;

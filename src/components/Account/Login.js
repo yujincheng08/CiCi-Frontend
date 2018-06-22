@@ -15,7 +15,10 @@ export default class Login extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.store.auth.login()
-      .then(() => this.props.history.replace('/'));
+      .then(() => {
+        if (this.props.store.auth.isAuth)
+          this.props.history.replace('/');
+      });
   };
 
   componentWillUnmount() {
@@ -47,9 +50,6 @@ export default class Login extends React.Component {
                 className={classes.accountFormItem}
                 fullWidth
         >Login</Button>
-        {auth.error === undefined ? null :
-          <span>{auth.error.toString()}</span>
-        }
       </form>
     )
   }

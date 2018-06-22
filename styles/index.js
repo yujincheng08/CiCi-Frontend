@@ -143,6 +143,20 @@ export default theme => ({
   },
   learningState: {
     marginLeft: 5 * theme.spacing.unit,
-  }
+  },
+  errorSnackBar: {
+    backgroundColor: theme.palette.error.main,
+  },
+  errorMessage: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  errorIcon: {
+    marginRight: theme.spacing.unit,
+  },
+  home: {
+    height: '100vh',
+    overflowY: 'auto'
+  },
 })
 ;

@@ -5,8 +5,6 @@ import superagent from 'superagent';
 export default class Auth extends Item {
   @observable progressing = false;
 
-  @observable error = undefined;
-
   @observable values = {
     username: '',
     email: '',
@@ -38,7 +36,7 @@ export default class Auth extends Item {
 
   @action login() {
     this.progressing = true;
-    this.error = undefined;
+    this.resetError();
     const {email, password} = this.values;
 
     return superagent.post(`/api/session`)
@@ -47,20 +45,20 @@ export default class Auth extends Item {
         this.setToken(user.token);
         this.reset();
       })
-      .catch(action(err => this.error = err))
+      .catch(err => this.setError(err.response.body.errors))
       .finally(action(() => this.progressing = false));
   }
 
   @action register() {
     this.progressing = true;
-    this.error = undefined;
+    this.resetError();
     const {username, email, password} = this.values;
     return superagent.put(`/api/user`)
       .send({user: {username, email, password}})
       .then(({body: {user}}) => {
         this.setToken(user.token);
         this.reset();
-      }).catch(action(err => this.error = err))
+      }).catch(err => this.setError(err.response.body.errors))
       .finally(action(() => this.progressing = false));
   }
 

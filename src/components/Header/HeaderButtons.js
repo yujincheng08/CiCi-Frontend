@@ -54,14 +54,6 @@ export default class HeaderButtons extends React.Component {
           open={open}
           onClose={this.handleClose}
         >
-          {
-            /*<ListItem component={NavLink}
-                        to={"/"}
-                        button
-              >
-                <ListItemText primary={"Home"}/>
-              </ListItem>*/
-          }
           {auth.isAuth ? null :
             <MenuItem component={NavLink} to={"/register"} onClick={this.handleClose}>Register</MenuItem>}
           {auth.isAuth ? null : <MenuItem component={NavLink} to={"/login"} onClick={this.handleClose}>Login</MenuItem>}
@@ -69,8 +61,6 @@ export default class HeaderButtons extends React.Component {
             <MenuItem component={NavLink} to={"/profile"} onClick={this.handleClose}>Profile</MenuItem> : null}
           {auth.isAuth ?
             <MenuItem component={NavLink} to={"/logout"} onClick={this.handleClose}>Logout</MenuItem> : null}
-          {/*<MenuItem onClick={this.handleClose}>Profile</MenuItem>*/}
-          {/*<MenuItem onClick={this.handleClose}>My account</MenuItem>*/}
         </Menu>
       </form>
     );

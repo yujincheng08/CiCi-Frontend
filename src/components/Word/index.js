@@ -41,7 +41,8 @@ export default class Word extends React.Component {
     return (
       <Card className={classes.wordCard}>
         <CardContent>
-          {word !== null ? <WordTitle wordData={wordData}/> : "Word Not found"}
+          {word !== null ? <WordTitle wordData={wordData}/> :
+            <Typography className={classes.wordTitleWord}>word not found</Typography>}
           {word !== null ? <Definition definitions={wordData['defs']}/> : null}
           {word !== null ? <Examples examples={wordData['sams']}/> : null}
         </CardContent>
