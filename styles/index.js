@@ -184,14 +184,15 @@ export default theme => ({
     color: theme.palette.primary.main,
     fontSize: '3vh',
     textShadow: 'rgba(0,0,0,0.2) 0em 0.05em 0.1em',
+    textAlign: 'center',
   },
   homeCards:{
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
     flexGrow: 1,
-    paddingLeft: '15vh',
-    paddingRight: '15vh',
+    paddingLeft: '12vw',
+    paddingRight: '12vw',
   },
   homeCard: {
     height: '30vh',
