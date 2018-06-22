@@ -8,7 +8,11 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import styles from 'styles';
 import DrawerItem from 'components/Drawer/DrawerItem';
-import {ChevronLeft as ChevronLeftIcon, Home as HomeIcon} from '@material-ui/icons';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import HomeIcon from '@material-ui/icons/Home';
+import TranslateIcon from '@material-ui/icons/Translate';
+import SchoolIcon from '@material-ui/icons/School';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import {withRouter} from 'react-router-dom';
 
 @withRouter
@@ -17,7 +21,8 @@ import {withRouter} from 'react-router-dom';
 @observer
 export default class SideBar extends React.Component {
   render() {
-    const {classes, store: {options: {drawerOpened}}} = this.props;
+    const {classes, store: {options}} = this.props;
+    const {drawerOpened} = options;
     return (
       <Drawer
         variant="permanent"
@@ -27,36 +32,32 @@ export default class SideBar extends React.Component {
         open={drawerOpened}
       >
         <div className={classes.toolbar}>
-          <IconButton onClick={() => this.props.store.options.toggleDrawer(false)}>
+          <IconButton onClick={() => options.toggleDrawer(false)}>
             <ChevronLeftIcon/>
           </IconButton>
         </div>
         <Divider/>
         <List component={"nav"} id={"drawer-items"}>
-          <DrawerItem onClick={() => this.props.store.options.toggleDrawer(false)} to={"/"}
+          <DrawerItem onClick={() => options.toggleDrawer(false)} to={"/"}
                       name={"Home"}
           >
             <HomeIcon/>
           </DrawerItem>
-
-
-          {/*<nav id={"header"}>*/}
-          {/*<ListItem component={NavLink} to={"/"} button>*/}
-          {/*<ListItemText primary={"Home"}/>*/}
-          {/*</ListItem>*/}
-          {/*{!auth.isAuth ? null :*/}
-          {/*<ListItem component={NavLink} to={"/register"} button>*/}
-          {/*<ListItemText primary={"Register"}/>*/}
-          {/*</ListItem>}*/}
-          {/*{!auth.isAuth ? null :*/}
-          {/*<ListItem component={NavLink} to={"/login"} button>*/}
-          {/*<ListItemText primary={"Login"}/>*/}
-          {/*</ListItem>}*/}
-          {/*{auth.isAuth ? null :*/}
-          {/*<ListItem component={NavLink} to={"/logout"} button>*/}
-          {/*<ListItemText primary={"Logout"}/>*/}
-          {/*</ListItem>}*/}
-          {/*</nav>*/}
+          <DrawerItem onClick={() => options.toggleDrawer(false)} to={"/learn"}
+                      name={"Learn"}
+          >
+            <SchoolIcon/>
+          </DrawerItem>
+          <DrawerItem onClick={() => options.toggleDrawer(false)} to={"/examine"}
+                      name={"Examine"}
+          >
+            <TranslateIcon/>
+          </DrawerItem>
+          <DrawerItem onClick={() => options.toggleDrawer(false)} to={"/wordbooks"}
+                      name={"Wordbooks"}
+          >
+            <LibraryBooksIcon/>
+          </DrawerItem>
         </List>
       </Drawer>
     );

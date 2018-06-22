@@ -3,34 +3,34 @@ let scrollbar = theme => ({
   overflowY: 'auto',
   height: '100vh',
   ['&::-webkit-scrollbar']: {
-      height: 12,
-      width: 12,
-      overflow: 'visible',
-    },
-    ['&::-webkit-scrollbar-button']: {
-      height: 0,
-      width: 0,
-    },
+    height: 12,
+    width: 12,
+    overflow: 'visible',
+  },
+  ['&::-webkit-scrollbar-button']: {
+    height: 0,
+    width: 0,
+  },
 
-    ['&::-webkit-scrollbar-track']: {
-      backgroundClip: 'padding-box',
-      border: 'solid transparent',
-      borderWidth: 3,
-      borderRadius: 100,
-      backgroundColor: theme.palette.grey[200],
-    },
+  ['&::-webkit-scrollbar-track']: {
+    backgroundClip: 'padding-box',
+    border: 'solid transparent',
+    borderWidth: 3,
+    borderRadius: 100,
+    backgroundColor: theme.palette.grey[200],
+  },
 
-    ['&::-webkit-scrollbar-thumb']: {
-      borderRadius: 100,
-      backgroundClip: 'padding-box',
-      border: 'solid transparent',
-      borderWidth: 3,
-      backgroundColor: theme.palette.grey[400],
-    },
+  ['&::-webkit-scrollbar-thumb']: {
+    borderRadius: 100,
+    backgroundClip: 'padding-box',
+    border: 'solid transparent',
+    borderWidth: 3,
+    backgroundColor: theme.palette.grey[400],
+  },
 
-    ['&::-webkit-scrollbar-corner']: {
-      background: 'rgba(255, 0, 0, 0)',
-    },
+  ['&::-webkit-scrollbar-corner']: {
+    background: 'rgba(255, 0, 0, 0)',
+  },
 });
 
 export default theme => ({
@@ -170,7 +170,7 @@ export default theme => ({
     height: '38vh',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     padding: 0,
     flexDirection: 'column',
     //backgroundColor: theme.palette.primary.dark,
@@ -186,18 +186,38 @@ export default theme => ({
     textShadow: 'rgba(0,0,0,0.2) 0em 0.05em 0.1em',
     textAlign: 'center',
   },
-  homeCards:{
+  homeCards: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     flexGrow: 1,
-    paddingLeft: '12vw',
-    paddingRight: '12vw',
+    //paddingLeft: '12vw',
+    //paddingRight: '12vw',
   },
   homeCard: {
-    height: '30vh',
-    width: '16vw',
+    height: '30vmin',
+    width: '30vmin',
+    display: 'flex',
+    cursor: 'pointer',
+  },
+  homeCardContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexGrow: 1,
+    minWidth: '5vmin',
+  },
+  homeCardIcon: {
+    fontSize: '10vmin',
+    color: theme.palette.primary.dark,
+  },
+  homeCardTitle: {
+    fontSize: '3vmin',
+  },
+  homeCardDescription: {
+    fontSize: '2vmin',
+  },
 
-  }
 })
 ;

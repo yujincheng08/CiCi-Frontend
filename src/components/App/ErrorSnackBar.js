@@ -25,8 +25,8 @@ export default class ErrorSnackBar extends React.Component {
           horizontal: 'center',
         }}
         open={open}
-        autoHideDuration={5000}
-        onClose={() => error.close()}
+        autoHideDuration={2000}
+        onClose={() => store.closeError()}
       >
         <SnackbarContent
           className={classes.errorSnackBar}
