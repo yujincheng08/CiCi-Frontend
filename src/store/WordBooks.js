@@ -4,6 +4,7 @@ import superagent from 'superagent';
 
 export default class WordBooks extends Item {
   @observable wordBooks = {};
+  @observable words = [];
 
   @action getAllWordbooks() {
     return superagent.get(`/api/wordbook`)
@@ -12,6 +13,18 @@ export default class WordBooks extends Item {
         Object.keys(body).map(key => body[key].state = undefined);
         this.wordBooks = body;
       }).catch(err => this.setError(err.response.body.errors));
+  }
+
+  @action getWordbook(wordbook, page) {
+    return superagent.get(`/api/wordbook/${wordbook}/${page}`)
+      .use(this.tokenPlugin)
+      .then(({body}) => {
+        this.words = body;
+      }).catch(err => this.setError(err.response.body.errors));
+  }
+
+  @action clearWorkbook() {
+    this.words = [];
   }
 
   @action clear() {

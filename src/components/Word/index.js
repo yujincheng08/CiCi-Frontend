@@ -21,9 +21,9 @@ export default class Word extends React.Component {
     this.props.store.word.query(word);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    let {word: oldWord} = prevProps.match.params;
-    let {word} = this.props.match.params;
+  componentWillUpdate(nextProps, nextState, snapshot) {
+    let {word: oldWord} = this.props.match.params;
+    let {word} = nextProps.match.params;
     if (oldWord !== word)
       this.props.store.word.query(word);
   }

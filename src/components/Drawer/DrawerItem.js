@@ -9,13 +9,13 @@ import {NavLink} from 'react-router-dom';
 @withStyles(styles)
 export default class Item extends React.Component {
   render() {
-    const {to, onClick, name, classes} = this.props;
+    const {to, onClick, name, classes, exact} = this.props;
     return (
       <ListItem button style={{whiteSpace: 'nowrap'}}
                 component={NavLink}
                 to={to}
                 onClick={onClick}
-                exact
+                exact={exact}
                 activeClassName={classes.checked}
       >
         <ListItemIcon>

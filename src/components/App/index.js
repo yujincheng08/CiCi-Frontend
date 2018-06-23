@@ -37,7 +37,7 @@ export default class App extends React.Component {
               <Route path="/word/:word" component={Word}/>
               <Route path="/learn" component={Learn}/>
               <Route path="/examine" component={Examine}/>
-              <Route path="/wordbooks" component={WordBooks}/>
+              <Route path="/wordbooks/:wordbook?/:page?" component={WordBooks}/>
             </Paper>
           </main>
         </div>

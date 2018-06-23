@@ -135,7 +135,7 @@ export default theme => ({
   },
   wordTitleWord: {
     marginBottom: theme.spacing.unit,
-    fontSize: 40,
+    fontSize: '5vmin',
   },
   mainPaper: {
     display: 'flex',
@@ -231,6 +231,15 @@ export default theme => ({
   },
   wordbookCardTitle: {
     color: theme.palette.primary.dark,
+  },
+  wordbook: {
+    flexGrow: 1,
+  },
+  wordbookTitle: {
+    fontSize: '5vmin',
+  },
+  wordbookTitleBar: {
+    alignItems: 'flex-end',
   }
 
 

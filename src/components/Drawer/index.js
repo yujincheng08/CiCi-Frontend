@@ -39,7 +39,7 @@ export default class SideBar extends React.Component {
         <Divider/>
         <List component={"nav"} id={"drawer-items"}>
           <DrawerItem onClick={() => options.toggleDrawer(false)} to={"/"}
-                      name={"Home"}
+                      name={"Home"} exact
           >
             <HomeIcon/>
           </DrawerItem>
