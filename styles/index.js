@@ -218,6 +218,21 @@ export default theme => ({
   homeCardDescription: {
     fontSize: '2vmin',
   },
+  wordbooks: {
+    ...scrollbar(theme),
+    display: 'flex',
+    alignItems: 'flex-start',
+  },
+  wordbookCard: {
+    margin: '3vmin'
+  },
+  wordbookCardContent: {
+    cursor: 'pointer',
+  },
+  wordbookCardTitle: {
+    color: theme.palette.primary.dark,
+  }
+
 
 })
 ;

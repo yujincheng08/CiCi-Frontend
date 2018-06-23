@@ -1,7 +1,7 @@
 import React from "react";
 import {inject, observer} from 'mobx-react';
 import {withRouter} from 'react-router-dom';
-import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import Banner from 'components/Home/Banner';
 import HomeCards from 'components/Home/HomeCards';
 import {withStyles} from '@material-ui/core/styles';
@@ -16,10 +16,10 @@ export default class Home extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <Card className={classes.home}>
+      <Paper className={classes.home}>
         <Banner/>
-      <HomeCards/>
-      </Card>
+        <HomeCards/>
+      </Paper>
     );
   }
 

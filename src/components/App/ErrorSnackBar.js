@@ -15,9 +15,10 @@ export default class ErrorSnackBar extends React.Component {
   render() {
     const {classes, store} = this.props;
     const {error: {open, message}} = store;
-    let errors = message ? Object.keys(message).map(key =>
-      typeof message[key] === "string" ? `${key} ${message[key]}` : ''
-    ).join('') : null;
+    let errors = message ? Object.keys(message)
+      .filter(key => typeof message[key] === "string")
+      .map(key => `${key} ${message[key]}`)
+      .join('') : null;
     return (
       <Snackbar
         anchorOrigin={{

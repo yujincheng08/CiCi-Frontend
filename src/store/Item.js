@@ -14,7 +14,6 @@ export default class Item {
 
 
   @action setError(error) {
-    console.log(error);
     Item.error.message = error;
     Item.error.open = true;
   }
