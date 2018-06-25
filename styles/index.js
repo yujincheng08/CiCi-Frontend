@@ -41,6 +41,12 @@ export default theme => ({
     position: 'relative',
     display: 'flex',
   },
+  loading: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexGrow: 1
+  },
   title: {
     flex: 1,
     marginLeft: 36,
@@ -240,6 +246,47 @@ export default theme => ({
   },
   wordbookTitleBar: {
     alignItems: 'flex-end',
+  },
+  selfCheckTitle: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  selfCheck: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    flexGrow: 1,
+  },
+  learn: {
+    ...scrollbar(theme),
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  selfCheckButtons: {
+    display: 'flex',
+    flexGrow: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    paddingBottom: '0 !important',
+  },
+  selfCheckButton: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
+  },
+  learnWord: {
+    overflowY: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+
+  },
+  learnWordDetail: {
+    ...scrollbar(theme),
+  },
+  learnWordNext: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
   }
 
 

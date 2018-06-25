@@ -1,6 +1,7 @@
 import React from 'react';
 import {observer, inject} from 'mobx-react';
 import {withRouter} from 'react-router-dom';
+import Loading from 'components/common/Loading';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import WordTitle from 'components/Word/WordTitle';
 import Card from '@material-ui/core/Card';
@@ -36,9 +37,7 @@ export default class Word extends React.Component {
     const {classes} = this.props;
     const {word, wordData, progressing} = this.props.store.word;
     if (progressing)
-      return (
-        <CircularProgress/>
-      );
+      return (<Loading/>);
     return (
       <Card className={classes.wordCard}>
         <CardContent>

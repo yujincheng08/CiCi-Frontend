@@ -1,5 +1,5 @@
 import Item from 'store/Item';
-import {action, observable, computed} from 'mobx';
+import {action, observable} from 'mobx';
 import superagent from 'superagent';
 
 export default class Auth extends Item {

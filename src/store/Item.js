@@ -12,7 +12,6 @@ export default class Item {
     Item.token = token;
   }
 
-
   @action setError(error) {
     Item.error.message = error;
     Item.error.open = true;
