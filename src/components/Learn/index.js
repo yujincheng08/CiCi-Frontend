@@ -4,11 +4,12 @@ import {withRouter} from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import {withStyles} from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Loading from 'components/common/Loading';
 import LearnProgress from 'components/Learn/LearnProgress';
 import styles from 'styles';
 import SelfCheck from 'components/Learn/SelfCheck';
 import LearnWord from 'components/Learn/LearnWord';
+import LearnFinish from "components/Learn/LearnFinish";
 
 
 @withRouter
@@ -23,6 +24,11 @@ export default class Learn extends React.Component {
   componentWillMount() {
     this.props.store.learn.getLearning();
   }
+
+  componentWillUnmount() {
+    this.props.store.learn.reset();
+  }
+
 
   know() {
     this.props.store.learn.know();
@@ -40,7 +46,13 @@ export default class Learn extends React.Component {
 
   render() {
     const {classes, store: {learn}} = this.props;
-    if (learn.loading) return (<CircularProgress/>);
+    if (learn.loading) return (<Loading/>);
+    if (learn.finish)
+      return (
+        <Card className={classes.learn}>
+          <LearnFinish/>
+        </Card>
+      );
     return (
       <Card className={classes.learn}>
         <CardContent>
@@ -50,7 +62,9 @@ export default class Learn extends React.Component {
                                             onKnow={() => this.know()}
                                             onLearn={() => this.learn()}
         /> : null}
-        {this.state.step === 2 ? <LearnWord word={learn.learningWord} onNext={() => this.next()}/> : null}
+        {this.state.step === 2 ? <LearnWord word={learn.learningWord}
+                                            onNext={() => this.next()}
+        /> : null}
       </Card>
     );
   }

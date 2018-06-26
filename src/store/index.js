@@ -5,6 +5,7 @@ import Options from 'store/Options';
 import Item from 'store/Item';
 import WordBooks from 'store/WordBooks';
 import Learn from 'store/Learn';
+import Examine from "store/Examine";
 
 class Store extends Item {
   profile = new Profile;
@@ -13,6 +14,7 @@ class Store extends Item {
   options = new Options;
   wordbooks = new WordBooks;
   learn = new Learn;
+  examine = new Examine;
 }
 
 

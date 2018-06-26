@@ -3,11 +3,11 @@ import {inject, observer} from 'mobx-react';
 import {withRouter} from 'react-router-dom';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import {withStyles} from '@material-ui/core/styles';
 import styles from 'styles';
 import WordTitle from 'components/Word/WordTitle';
 import Definition from 'components/Word/Definition';
+import Typography from '@material-ui/core/Typography';
 import Examples from 'components/Word/Examples';
 
 
@@ -19,11 +19,7 @@ export default class LearnWord extends React.Component {
 
   render() {
     const {classes, onNext} = this.props;
-    const {word, wordData, progressing} = this.props.store.word;
-    if (progressing)
-      return (
-        <CircularProgress/>
-      );
+    const {word, wordData} = this.props.store.word;
     return (
       <CardContent className={classes.learnWord}>
         <CardContent className={classes.learnWordDetail}>

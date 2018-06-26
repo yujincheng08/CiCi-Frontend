@@ -287,8 +287,24 @@ export default theme => ({
   learnWordNext: {
     marginTop: theme.spacing.unit,
     marginBottom: theme.spacing.unit,
+  },
+  learnWordRelearn: {
+    marginTop: theme.spacing.unit,
+    marginBottom: theme.spacing.unit,
+  },
+  examine: {
+    ...scrollbar(theme),
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  examineFinishTitle: {
+    textAlign: 'center',
+    fontSize: '5vmin',
+  },
+  learnFinishTitle: {
+    textAlign: 'center',
+    fontSize: '5vmin',
   }
-
 
 })
 ;
