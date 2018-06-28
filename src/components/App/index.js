@@ -15,6 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import ErrorSnackBar from 'components/App/ErrorSnackBar';
 import Examine from 'components/Examine';
 import WordBooks from 'components/WordBooks';
+import Profile from 'components/Profile';
 
 @withRouter
 @withStyles(styles)
@@ -37,6 +38,7 @@ export default class App extends React.Component {
               <Route path="/word/:word" component={Word}/>
               <Route path="/learn" component={Learn}/>
               <Route path="/examine" component={Examine}/>
+              <Route path="/profile" component={Profile}/>
               <Route path="/wordbooks/:wordbook?/:page?" component={WordBooks}/>
             </Paper>
           </main>

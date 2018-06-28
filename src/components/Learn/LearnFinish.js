@@ -24,7 +24,7 @@ export default class LearnFinish extends React.Component {
                     color={'primary'}
                     gutterBottom
         >Finish Learning!</Typography>
-        <Typography variant={'title'}>Today's words:</Typography>
+        <Typography variant={'title'}>Today's words(Click to review):</Typography>
         <List>
           {learn.finished.map(word => (
             <ListItem key={word} button onClick={() => history.push(`/word/${word}`)}>

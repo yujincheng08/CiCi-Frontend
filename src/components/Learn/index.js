@@ -22,7 +22,10 @@ export default class Learn extends React.Component {
   };
 
   componentWillMount() {
-    this.props.store.learn.getLearning();
+    if (this.props.store.isAuth)
+      this.props.store.learn.getLearning();
+    else
+      this.props.history.push('/login');
   }
 
   componentWillUnmount() {

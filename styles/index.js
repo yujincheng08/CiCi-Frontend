@@ -134,7 +134,7 @@ export default theme => ({
   },
   searchBar: {
     color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.secondary[500],
+    backgroundColor: theme.palette.secondary.main,
     paddingLeft: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     marginRight: 2 * theme.spacing.unit,
@@ -304,7 +304,30 @@ export default theme => ({
   learnFinishTitle: {
     textAlign: 'center',
     fontSize: '5vmin',
+  },
+  avatar: {
+    backgroundColor: theme.palette.secondary.main,
+  },
+  profile: {
+    ...scrollbar(theme),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  profileForm: {
+    width: '500px',
+  },
+  logout: {
+    ...scrollbar(theme),
+    display: 'flex',
+  },
+  logoutContent: {
+    marginTop: 5 * theme.spacing.unit,
+    display: 'flex',
+    flexGrow: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
   }
-
 })
 ;

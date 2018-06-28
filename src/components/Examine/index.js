@@ -18,7 +18,10 @@ import SelfCheckTitle from "components/Learn/SelfCheckTitle";
 @observer
 export default class Examine extends React.Component {
   componentWillMount() {
-    this.props.store.examine.getExamine();
+    if (this.props.store.isAuth)
+      this.props.store.examine.getExamine();
+    else
+      this.props.history.push('/login');
   }
 
   componentWillUnmount() {

@@ -7,6 +7,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Avatar from '@material-ui/core/Avatar';
 import {withRouter} from 'react-router-dom';
 
 @withRouter
@@ -27,19 +28,20 @@ export default class HeaderButtons extends React.Component {
   };
 
   render() {
-    const {store: {auth}, classes} = this.props;
+    const {store: {auth, profile}, classes} = this.props;
     const {anchorEle} = this.state;
     const open = Boolean(anchorEle);
     return (
       <form className={classes.headerButtons} noValidate autoComplete="off">
-        <IconButton
+        <Avatar
           aria-owns={open ? 'menu-appbar' : null}
           aria-haspopup="true"
           onClick={this.handleMenu}
           color="inherit"
+          className={classes.avatar}
         >
-          <AccountCircle/>
-        </IconButton>
+          {auth.isAuth ? profile.username[0] : <AccountCircle/>}
+        </Avatar>
         <Menu
           id="account-menu"
           anchorEl={anchorEle}

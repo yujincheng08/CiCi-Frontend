@@ -26,8 +26,12 @@ export default class Register extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    if (this.password !== this.confirmedPassword || this.password.length > 0)
+      return this.props.store.setError({password: 'not match'});
     this.props.store.auth.register()
-      .then(() => this.props.history.replace('/'));
+      .then(() => {
+        if (this.props.store.isAuth) this.props.history.replace('/');
+      });
   };
 
   componentWillUnmount() {
