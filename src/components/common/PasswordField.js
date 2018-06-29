@@ -19,13 +19,14 @@ export default class PasswordField extends React.Component {
 
   render() {
     const {showPassword} = this.state;
-    const {label, id} = this.props;
+    const {label, id, inputProps} = this.props;
     return (
       <FormControl {...this.props}>
         <InputLabel htmlFor={id ? id : label}>{label}</InputLabel>
         <Input
           id={id ? id : label}
           type={showPassword ? "text" : "password"}
+          inputProps={inputProps}
           endAdornment={
             <InputAdornment position={"end"}>
               <IconButton

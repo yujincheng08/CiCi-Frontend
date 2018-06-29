@@ -50,6 +50,7 @@ export default class Register extends React.Component {
         <TextField label={"Username"}
                    fullWidth required
                    value={values.username}
+                   inputProps={{pattern: '\\S{6,}'}}
                    onChange={e => {
                      auth.setUsername(e.target.value);
                    }}
@@ -66,6 +67,7 @@ export default class Register extends React.Component {
         />
         <PasswordField label={"Password"}
                        fullWidth required
+                       inputProps={{pattern: '.{6,}'}}
                        onChange={
                          action(e => this.password = e.target.value)
                        }
@@ -74,6 +76,7 @@ export default class Register extends React.Component {
         />
         <PasswordField label={"Confirm password"}
                        fullWidth required
+                       inputProps={{pattern: '.{6,}'}}
                        onChange={
                          action(e => this.confirmedPassword = e.target.value)
                        }

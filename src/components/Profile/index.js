@@ -34,6 +34,7 @@ export default class Profile extends React.Component {
         <form onSubmit={this.onSubmit} className={classes.profileForm}>
           <TextField label={"Username"}
                      fullWidth required
+                     inputProps={{pattern: '.{6,}'}}
                      value={profile.newUsername}
                      onChange={action(e => profile.newUsername = e.target.value)}
                      className={classes.accountFormItem}
@@ -48,12 +49,14 @@ export default class Profile extends React.Component {
           <PasswordField label={"Password"}
                          fullWidth
                          onChange={action(e => profile.password = e.target.value)}
+                         inputProps={{pattern: '.{6,}'}}
                          value={profile.password}
                          className={classes.accountFormItem}
           />
           <PasswordField label={"Confirm password"}
                          fullWidth
                          onChange={action(e => profile.confirmPassword = e.target.value)}
+                         inputProps={{pattern: '.{6,}'}}
                          value={profile.confirmPassword}
                          className={classes.accountFormItem}
           />

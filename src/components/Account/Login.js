@@ -40,6 +40,7 @@ export default class Login extends React.Component {
         />
         <PasswordField
           label={"Password"}
+          inputProps={{pattern: '.{6,}'}}
           fullWidth required
           onChange={e => auth.setPassword(e.target.value)}
           value={values.password}
