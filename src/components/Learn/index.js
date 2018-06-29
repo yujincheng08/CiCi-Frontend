@@ -50,7 +50,7 @@ export default class Learn extends React.Component {
   render() {
     const {classes, store: {learn}} = this.props;
     if (learn.loading) return (<Loading/>);
-    if (learn.finish)
+    if (learn.finish && this.state.step !== 2)
       return (
         <Card className={classes.learn}>
           <LearnFinish/>
