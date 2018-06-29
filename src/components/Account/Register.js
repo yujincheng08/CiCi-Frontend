@@ -26,7 +26,7 @@ export default class Register extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    if (this.password !== this.confirmedPassword || this.password.length > 0)
+    if (this.password !== this.confirmedPassword || this.password.length === 0)
       return this.props.store.setError({password: 'not match'});
     this.props.store.auth.register()
       .then(() => {
